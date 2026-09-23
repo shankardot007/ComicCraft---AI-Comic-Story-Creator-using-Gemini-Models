@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComicCraft — AI Comic Story Creator</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">CC</span>
+      <div>
+        <h1>ComicCraft</h1>
+        <p>AI Comic Story Creator · Gemini + Stable Diffusion</p>
+      </div>
+    </div>
+    <div class="status" id="status">
+      <span class="dot" id="dot-google"></span> Gemini
+      <span class="dot" id="dot-hf"></span> Hugging Face
+    </div>
+  </header>
+
+  {% if missing %}
+  <div class="banner warn">
+    Missing keys in <code>.env</code>: {{ missing | join(", ") }} — copy
+    <code>.env.example</code> to <code>.env</code> and fill them in, then restart the server.
+    Hugging Face is optional; images fall back to Gemini when no HF key is set.
+  </div>
+  {% endif %}
+
+  <main class="layout">
+    <section class="card form-card">
+      <h2>1 · Story Inputs</h2>
+      <form id="comic-form">
+        <label for="idea">Story idea <span class="req">*</span></label>
+        <textarea id="idea" rows="4" required
+          placeholder="e.g. A shy robot discovers it can grow flowers and must save its dying city before the annual Bloom Festival."></textarea>
+
+        <label>Characters</label>
+        <div id="characters"></div>
+        <button type="button" class="ghost" id="add-character">+ Add character</button>
+
+        <div class="grid2">
+          <div>
+            <label for="setting">Setting</label>
+            <input id="setting" placeholder="e.g. Neo-Garden city, 2142" />
+          </div>
+          <div>
+            <label for="tone">Tone</label>
+            <select id="tone">
+              <option>Wholesome</option>
+              <option>Humorous</option>
+              <option>Action-Packed</option>
+              <option>Dark</option>
+              <option>Mysterious</option>
+              <option>Romantic</option>
+              <option>Inspirational</option>
+            </select>
+          </div>
+          <div>
+            <label for="art-style">Art style</label>
+            <select id="art-style">
+              <option>American Comic</option>
+              <option>Manga</option>
+              <option>Cartoon</option>
+              <option>Film Noir</option>
+              <option>Retro Pop Art</option>
+              <option>Watercolor</option>
+              <option>Fantasy Epic</option>
+            </select>
+          </div>
+          <div>
+            <label for="panel-count">Panels: <span id="panel-count-val">6</span></label>
+            <input type="range" id="panel-count" min="3" max="10" value="6" />
+          </div>
+        </div>
+
+        <button type="submit" class="primary" id="generate-btn">⚡ Generate Comic</button>
+        <button type="button" class="secondary hidden" id="download-btn">⬇ Download PDF</button>
+      </form>
+      <div class="progress hidden" id="progress">
+        <div class="bar"><div class="fill" id="progress-fill"></div></div>
+        <p id="progress-text">Working…</p>
+      </div>
+      <div class="banner error hidden" id="error-box"></div>
+      <div class="banner ok hidden" id="ok-box"></div>
+    </section>
+
+    <section class="card preview-card">
+      <h2>2 · Comic Preview</h2>
+      <div id="comic-header" class="comic-header hidden">
+        <h3 id="comic-title"></h3>
+        <p id="comic-logline"></p>
+      </div>
+      <div id="comic-grid" class="comic-grid">
+        <p class="placeholder">Your generated comic panels will appear here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    ComicCraft · FastAPI · Google Gemini 2.5 Flash / Pro · Stable Diffusion · FPDF
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
