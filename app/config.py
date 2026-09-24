@@ -9,8 +9,8 @@ load_dotenv(BASE_DIR / ".env")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "").strip()
 HF_API_KEY = os.getenv("HF_API_KEY", "").strip()
 
-GEMINI_FLASH_MODEL = os.getenv("GEMINI_FLASH_MODEL", "gemini-3.5-flash")
-GEMINI_PRO_MODEL = os.getenv("GEMINI_PRO_MODEL", "gemini-3.5-flash")
+GEMINI_FLASH_MODEL = os.getenv("GEMINI_FLASH_MODEL", "gemini-3.6-flash")
+GEMINI_PRO_MODEL = os.getenv("GEMINI_PRO_MODEL", "gemini-3.6-flash")
 GEMINI_IMAGE_MODEL = os.getenv("GEMINI_IMAGE_MODEL", "gemini-2.5-flash-image")
 SD_MODEL = os.getenv("SD_MODEL", "stabilityai/stable-diffusion-xl-base-1.0")
 

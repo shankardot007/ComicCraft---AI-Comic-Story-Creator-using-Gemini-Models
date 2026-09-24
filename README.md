@@ -27,7 +27,7 @@ Built with **FastAPI** · **Google Gemini** · **FPDF** · optional **Stable Dif
 | 2 | [`2_Requirement_Analysis`](2_Requirement_Analysis) | Functional & non-functional requirements, tech stack |
 | 3 | [`3_Project_Design`](3_Project_Design) | Architecture flow, backend structure, schema |
 | 4 | [`4_Project_Planning`](4_Project_Planning) | WBS, responsibilities, risks |
-| 5 | [`5_Project_Development`](5_Project_Development) | **Working source code** — FastAPI app, services, UI |
+| 5 | [`5_Project_Development`](5_Project_Development) | Development phase notes — the **working source code lives in the repo root** (`app/`, `templates/`, `static/`, `requirements.txt`) |
 | 6 | [`6_Project_Testing`](6_Project_Testing) | Test cases and status |
 | 7 | [`7_Project_Documentation`](7_Project_Documentation) | User guide and documentation |
 | 8 | [`8_Project_Demonstration`](8_Project_Demonstration) | Demo deliverables and video link |
@@ -35,7 +35,6 @@ Built with **FastAPI** · **Google Gemini** · **FPDF** · optional **Stable Dif
 ## Quick Start
 
 ```bash
-cd 5_Project_Development
 python -m venv .venv
 # Windows: .venv\Scripts\activate | macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
@@ -51,7 +50,6 @@ Open this repository root in VS Code (`.vscode/` included):
 
 - Press **F5** to debug-launch the server.
 - Terminal → Run Task → **Run ComicCraft server**.
-- The venv interprets under `5_Project_Development\.
 
 ## License
 

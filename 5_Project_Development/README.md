@@ -1,8 +1,8 @@
 # Phase 5: Project Development
 
-This directory contains the complete, working source code for **ComicCraft**.
+The **working source code** for **ComicCraft** lives in the **repository root** (the `5_Project_Development` folder holds these development-phase notes, while the code sits at the top level for simple daily coding in VS Code).
 
-## Core Components
+## Core Components (repo root)
 
 | File | Purpose |
 | :--- | :--- |
@@ -21,15 +21,11 @@ This directory contains the complete, working source code for **ComicCraft**.
 ## Setup Instructions
 
 ```bash
-# 1. Create and activate a virtual environment
-python -m venv .venv            # use 5_Project_Development as cwd
+# From the repository root
+python -m venv .venv
 # Windows: .venv\Scripts\activate      macOS/Linux: source .venv/bin/activate
-
-# 2. Install dependencies
 pip install -r requirements.txt
-
-# 3. Configure the API key
-copy .env.example .env          # then edit GOOGLE_API_KEY
+copy .env.example .env                # then edit GOOGLE_API_KEY
 ```
 
 `.env`:
@@ -46,7 +42,7 @@ SD_MODEL=stabilityai/stable-diffusion-xl-base-1.0
 ## Run Instructions
 
 ```bash
-uvicorn app.main:app --reload   # from inside 5_Project_Development
+uvicorn app.main:app --reload   # from the repo root
 ```
 
 Open **http://127.0.0.1:8000** — Story Inputs → ⚡ Generate Comic → ⬇ Download PDF.
